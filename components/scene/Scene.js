@@ -2,39 +2,64 @@ import { Canvas } from 'react-three-fiber'
 import { OrbitControls } from '@react-three/drei'
 import Door from '@/components/Door'
 import Floor from '@/components/Floor'
+import { doorConfig } from '@/data'
+import { getRandomInt } from '@/utils'
 
 const Scene = () => {
+  const doors = (num = 10) => {
+    const data = []
+
+    for (let i = 0; i < num; i++) {
+      data.push({
+        position: [
+          getRandomInt(-5, 5) * doorConfig.width * 3,
+          0,
+          getRandomInt(-5, 5) * doorConfig.width * 3
+        ],
+        rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0]
+      })
+    }
+
+    return data
+  }
+
   return (
     <div className="scene">
       <Canvas
         orthographic
         colorManagement
+        gl={{ antialias: true }}
         camera={{
           near: 0.1,
           far: 10000,
           position: [4, 1, -4],
-          zoom: 5
+          zoom: 3
         }}>
         <Floor />
 
-        <Door position={[20, 0, 40]} url={'/world'} />
-        <Door position={[-100, 0, 100]} rotation={[0, -Math.PI * 0.5, 0]} url={'/world'} />
-        <Door position={[120, 0, -80]} rotation={[0, Math.PI * 0.5, 0]} url={'/world'} />
-        <Door position={[-60, 0, -60]} rotation={[0, Math.PI, 0]} url={'/world'} />
-        <Door position={[-200, 0, 100]} rotation={[0, 0, 0]} url={'/world'} />
-        <Door position={[20, 0, 200]} rotation={[0, Math.PI * 0.5, 0]} url={'/world'} />
+        {doors(10).map((door, index) => {
+          return (
+            <Door
+              color={0xffffff}
+              position={door.position}
+              rotation={door.rotation}
+              url={'/world'}
+              key={index}
+            />
+          )
+        })}
 
         <OrbitControls
           enablePan={false}
           enableDamping={true}
           dampingFactor={0.05}
-          enableZoom={false}
           enableRotate={true}
-          minPolarAngle={Math.PI * 0.5 * 0.85}
-          maxPolarAngle={Math.PI * 0.5 * 0.85}
+          minPolarAngle={Math.PI * 0.5 * 0.8}
+          maxPolarAngle={Math.PI * 0.5 * 0.8}
+          enableZoom={false}
           minDistance={1000}
           maxDistance={1000}
-          target={[0, 20 * 1.618 * 0.5, 0]}
+          target={[0, doorConfig.height * 0.5, 0]}
         />
 
         {/* <ambientLight intensity={0.3} /> */}

@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from 'react'
 import Router from 'next/router'
 import { animateTo } from '@/utils'
+import { doorConfig } from '@/data'
 
 const intensity = {
   from: 1,
   to: 100
 }
-const width = 20
-const height = 20 * 1.618
+const width = doorConfig.width
+const height = doorConfig.height
 
 const scale = 1.2
 
