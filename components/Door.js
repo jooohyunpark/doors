@@ -1,8 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import Router from 'next/router'
 import { animateTo } from '@/utils'
-import * as THREE from 'three'
-import Roboto from '@/assets/font/roboto.json'
 
 const intensity = {
   from: 1,
@@ -11,27 +9,17 @@ const intensity = {
 const width = 20
 const height = 20 * 1.618
 
-const font = new THREE.FontLoader().parse(Roboto)
-const textConfig = {
-  font,
-  size: 3,
-  height: 0
-}
-
-const Exit = (props) => {
-  const { position, rotation, title = '' } = props
-  const url = '/' + title.toLowerCase().replace(' ', '-')
+const Door = (props) => {
+  const { color, position, rotation, url } = props
 
   const mesh = useRef()
   const light = useRef()
-  const text = useRef()
 
   const [hovered, setHover] = useState(false)
 
   useEffect(() => {
-    text.current.geometry.center()
     return () => {
-      console.log('destroy exit')
+      console.log('destory door')
     }
   }, [])
 
@@ -48,10 +36,6 @@ const Exit = (props) => {
         x: scale,
         y: scale
       })
-      animateTo(text.current.material, {
-        opacity: 1,
-        duration: 0.5
-      })
     } else {
       animateTo(light.current, {
         intensity: intensity.from,
@@ -61,10 +45,6 @@ const Exit = (props) => {
       animateTo(mesh.current.scale, {
         x: 1,
         y: 1
-      })
-      animateTo(text.current.material, {
-        opacity: 0,
-        duration: 0.5
       })
     }
   }, [hovered])
@@ -78,28 +58,24 @@ const Exit = (props) => {
         position={[0, height * 0.5, 0]}
         rotation={[0, Math.PI, 0]}
         onClick={() => {
+          console.log('pushed')
           Router.push(url)
         }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}>
         <planeGeometry args={[width, height]} />
-        <meshBasicMaterial color={props.color || '#ffffff'} />
+        <meshBasicMaterial color={color || '#ffffff'} />
       </mesh>
 
       <rectAreaLight
         ref={light}
         width={width}
         height={height}
-        color={props.color || '#ffffff'}
+        color={color || '#ffffff'}
         intensity={intensity.from}
       />
-
-      <mesh ref={text} position={[0, height + 10, 0]} rotation={[-Math.PI, 0, Math.PI]}>
-        <textGeometry args={[title, textConfig]} />
-        <meshBasicMaterial transparent={true} color={'#fff'} opacity={0} />
-      </mesh>
     </group>
   )
 }
 
-export default Exit
+export default Door

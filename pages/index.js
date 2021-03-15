@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import SceneHome from '@/components/scene/Scene'
+import Scene from '@/components/scene/scene'
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -10,14 +10,12 @@ const Home = () => {
       transition={{ duration: 0.3 }}
       exit={{ opacity: 0 }}>
       <Head>
-        <title>home</title>
+        <title>Doors</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <div className="home">
-          <SceneHome />
-        </div>
+        <Scene />
       </main>
 
       <footer></footer>
