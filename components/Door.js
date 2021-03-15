@@ -9,8 +9,10 @@ const intensity = {
 const width = 20
 const height = 20 * 1.618
 
+const scale = 1.2
+
 const Door = (props) => {
-  const { color, position, rotation, url } = props
+  const { color = 0xffffff, position, rotation, url } = props
 
   const mesh = useRef()
   const light = useRef()
@@ -24,8 +26,6 @@ const Door = (props) => {
   }, [])
 
   useEffect(() => {
-    const scale = 1.2
-
     if (hovered) {
       animateTo(light.current, {
         intensity: intensity.to,
@@ -58,20 +58,20 @@ const Door = (props) => {
         position={[0, height * 0.5, 0]}
         rotation={[0, Math.PI, 0]}
         onClick={() => {
-          console.log('pushed')
           Router.push(url)
+          console.log('router push')
         }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}>
         <planeGeometry args={[width, height]} />
-        <meshBasicMaterial color={color || '#ffffff'} />
+        <meshBasicMaterial color={color} />
       </mesh>
 
       <rectAreaLight
         ref={light}
         width={width}
         height={height}
-        color={color || '#ffffff'}
+        color={color}
         intensity={intensity.from}
       />
     </group>

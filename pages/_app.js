@@ -1,7 +1,7 @@
 import '@/assets/styles/main.scss'
 import { AnimatePresence } from 'framer-motion'
 
-function MyApp({ Component, pageProps, router }) {
+const MyApp = ({ Component, pageProps, router }) => {
   return (
     <div className="app">
       <AnimatePresence exitBeforeEnter>

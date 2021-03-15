@@ -1,14 +1,9 @@
 import Head from 'next/head'
-import Scene2 from '@/components/scene/scene2'
-import { motion } from 'framer-motion'
+import Scene2 from '@/components/scene/Scene2'
 
-const Home = () => {
+const World = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      exit={{ opacity: 0 }}>
+    <div>
       <Head>
         <title>Doors</title>
         <link rel="icon" href="/favicon.ico" />
@@ -19,8 +14,8 @@ const Home = () => {
       </main>
 
       <footer></footer>
-    </motion.div>
+    </div>
   )
 }
 
-export default Home
+export default World
