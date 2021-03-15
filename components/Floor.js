@@ -8,7 +8,6 @@ const Floor = (props) => {
   useEffect(() => {
     animateTo(mesh.current.material, {
       metalness: 0.1,
-      delay: 1,
       duration: 1
     })
   }, [])

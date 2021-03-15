@@ -59,7 +59,6 @@ const Door = (props) => {
         rotation={[0, Math.PI, 0]}
         onClick={() => {
           Router.push(url)
-          console.log('router push')
         }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}>
