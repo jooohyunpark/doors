@@ -22,7 +22,7 @@ const Scene2 = () => {
             position: [4, 1, -4],
             zoom: 5
           }}>
-          <Floor color={0xffffff} />
+          <Floor color={0xcccccc} />
 
           <Door color={0x000000} position={[20, 0, 40]} url={'/'} />
 
