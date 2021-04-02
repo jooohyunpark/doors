@@ -1,9 +1,9 @@
 import { Canvas } from 'react-three-fiber'
-import { OrbitControls } from '@react-three/drei'
 import Door from '@/components/Door'
 import Floor from '@/components/Floor'
 import { doorConfig } from '@/data'
 import { getRandomInt } from '@/utils'
+import Control from '@/components/Control'
 
 const Scene = () => {
   const doors = (num = 10) => {
@@ -49,31 +49,10 @@ const Scene = () => {
           )
         })}
 
-        <OrbitControls
-          enablePan={false}
-          enableDamping={true}
-          dampingFactor={0.05}
-          enableRotate={true}
-          minPolarAngle={Math.PI * 0.5 * 0.8}
-          maxPolarAngle={Math.PI * 0.5 * 0.8}
-          enableZoom={false}
-          minDistance={1000}
-          maxDistance={1000}
-          target={[0, doorConfig.height * 0.5, 0]}
-        />
+        <Control />
 
         {/* <ambientLight intensity={0.3} /> */}
       </Canvas>
-
-      <style jsx>{`
-        .scene {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-        }
-      `}</style>
     </div>
   )
 }
