@@ -34,12 +34,14 @@ const Scene2 = () => {
           position: [4, 1, -4],
           zoom: 3
         }}>
+        <color attach="background" args={[0x5200ff]} />
+
         <Floor receiveShadow color={0xffffff} />
 
         {doors(20).map((door, index) => {
           return (
             <Door
-              color={0x000000}
+              color={0x00ff00}
               position={door.position}
               rotation={door.rotation}
               url={'/'}

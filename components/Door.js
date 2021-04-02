@@ -63,7 +63,7 @@ const Door = (props) => {
         }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}>
-        <planeGeometry args={[width, height]} />
+        <planeBufferGeometry args={[width, height]} />
         <meshBasicMaterial color={color} />
       </mesh>
 
