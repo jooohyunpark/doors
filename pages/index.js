@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Scene from '@/components/scene/Scene'
+import Scene from '@/components/scene'
 import { motion } from 'framer-motion'
 
 const Home = () => {

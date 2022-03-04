@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Scene2 from '@/components/scene/Scene2'
+import Scene from '@/components/scene/1'
 import { motion } from 'framer-motion'
 
-const World = () => {
+const Room = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ const World = () => {
       </Head>
 
       <main>
-        <Scene2 />
+        <Scene />
       </main>
 
       <footer></footer>
@@ -23,4 +23,4 @@ const World = () => {
   )
 }
 
-export default World
+export default Room
