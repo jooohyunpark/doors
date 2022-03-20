@@ -1,7 +1,7 @@
 import { Canvas } from 'react-three-fiber'
 import Control from '@/components/Control'
 
-const Canvas_ = ({ children = '' }) => {
+const Canvas_ = ({ children = null }) => {
   return (
     <div className="scene">
       <Canvas

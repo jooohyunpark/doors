@@ -8,11 +8,11 @@ const Scene = () => {
   return (
     <Canvas>
       <Floor />
-      {/* <ambientLight intensity={1} /> */}
+      {/* <ambientLight color={0x00ffff} intensity={1} /> */}
 
-      <Floor receiveShadow color={0xffffff} />
+      {/* <color attach="background" args={0x00ffff} /> */}
 
-      <Door color={0x00ff00} position={[0, 0, 0]} rotation={[0, 0, 0]} url={'/'} />
+      <Door color={0xffffff} position={[0, 0, 0]} rotation={[0, 0, 0]} url={'/'} />
     </Canvas>
   )
 }
