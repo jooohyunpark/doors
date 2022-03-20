@@ -25,7 +25,7 @@ const Scene = () => {
   return (
     <Canvas>
       <Floor />
-      {/* <ambientLight intensity={0.3} /> */}
+      {/* <ambientLight intensity={1} /> */}
 
       {doors(10).map((door, index) => {
         return (

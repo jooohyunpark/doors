@@ -25,7 +25,7 @@ const Scene = () => {
   return (
     <Canvas>
       <Floor />
-      {/* <ambientLight intensity={0.3} /> */}
+      {/* <ambientLight intensity={1} /> */}
 
       <Floor receiveShadow color={0xffffff} />
 
