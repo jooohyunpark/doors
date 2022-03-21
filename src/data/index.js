@@ -6,10 +6,10 @@ export const doorConfig = {
 }
 
 export const roomData = [
-  { color: '0x000000', url: '/' },
-  { color: 0xcccccc, url: '/1' },
-  { color: 0x00ffff, url: '/2' },
-  { color: 0xffffff, url: '/3' },
+  { color: '#000000', url: '/' },
+  { color: '#cccccc', url: '/1' },
+  { color: '#cccccc', url: '/2' },
+  { color: '#cccccc', url: '/3' },
 ]
 
 export const doors = (data = [{ color: 0xffffff, url: '/' }]) => {
