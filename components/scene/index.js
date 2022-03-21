@@ -5,8 +5,9 @@ import Floor from '@/components/Floor'
 const Scene = ({ doors = [], color = 0xffffff }) => {
   return (
     <Canvas>
+      <color attach="background" args={[color]} />
       <Floor />
-      <ambientLight color={color} intensity={1} />
+      <ambientLight color={color} intensity={3} />
 
       {doors.map((door, index) => {
         return (

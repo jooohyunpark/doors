@@ -67,6 +67,11 @@ const Door = (props) => {
         <meshBasicMaterial color={color} />
       </mesh>
 
+      {/* <mesh position={[0, 0, height * -1]} rotation={[Math.PI * 0.5, Math.PI, 0]}>
+        <planeBufferGeometry args={[width, height * 2]} />
+        <meshBasicMaterial color={color} transparent={true} opacity={0.5} />
+      </mesh> */}
+
       <rectAreaLight
         ref={light}
         width={width}

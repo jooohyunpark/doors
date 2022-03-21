@@ -1,15 +1,10 @@
 import Head from 'next/head'
 import Room from '@/components/Room'
 import Scene from '@/components/Scene'
-import { doors } from '@/data'
+import { doors, roomData } from '@/data'
 
 const Home = () => {
-  const data = [
-    { color: 0x00ffff, url: '/1' },
-    { color: 0x00ffff, url: '/2' },
-    { color: 0xffffff, url: '/1' },
-    { color: 0xffffff, url: '/1' }
-  ]
+  const data = roomData.filter((room, i) => i !== 0)
 
   return (
     <Room>

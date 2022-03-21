@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import Room from '@/components/Room'
 import Scene from '@/components/Scene'
-import { doors } from '@/data'
+import { doors, roomData } from '@/data'
 
 const Page = () => {
-  const data = [
-    { color: 0xffffff, url: '/' },
-    { color: 0x00ffff, url: '/2' }
-  ]
+  const data = [roomData[0], roomData[2]]
 
   return (
     <Room>
@@ -17,7 +14,7 @@ const Page = () => {
       </Head>
 
       <main>
-        <Scene color={0x00ffff} doors={doors(data)} />
+        <Scene color={roomData[1].color} doors={doors(data)} />
       </main>
     </Room>
   )

@@ -1,5 +1,4 @@
-import { Canvas } from 'react-three-fiber'
-import * as THREE from 'three'
+import { Canvas, useThree } from 'react-three-fiber'
 import Control from '@/components/Control'
 
 const Canvas_ = ({ children = null }) => {

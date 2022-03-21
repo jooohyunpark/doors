@@ -5,6 +5,13 @@ export const doorConfig = {
   height: 20 * 1.618
 }
 
+export const roomData = [
+  { color: 0x000000, url: '/' },
+  { color: 0x0000ff, url: '/1' },
+  { color: 0x00ffff, url: '/2' },
+  { color: 0xffffff, url: '/3' }
+]
+
 export const doors = (data = [{ color: 0xffffff, url: '/' }]) => {
   const array = []
 
