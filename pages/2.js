@@ -1,8 +1,14 @@
 import Head from 'next/head'
 import Room from '@/components/Room'
-import Scene from '@/components/Scene/2'
+import Scene from '@/components/Scene'
+import { doors } from '@/data'
 
 const Page = () => {
+  const data = [
+    { color: 0xffffff, url: '/' },
+    { color: 0x00ffff, url: '/1' }
+  ]
+
   return (
     <Room>
       <Head>
@@ -11,7 +17,7 @@ const Page = () => {
       </Head>
 
       <main>
-        <Scene color={0x00ff00} />
+        <Scene color={0x00ffff} doors={doors(data)} />
       </main>
     </Room>
   )

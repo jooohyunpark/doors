@@ -12,12 +12,8 @@ const Canvas_ = ({ children = null }) => {
         camera={{
           near: 0.1,
           far: 10000,
-          position: [4, 1, -4],
+          position: [10, 1, -10],
           zoom: 3
-        }}
-        onCreated={({ gl, scene }) => {
-          scene.background = new THREE.Color(0x5200ff)
-          console.log(gl, scene)
         }}>
         <Control />
 

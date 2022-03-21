@@ -1,6 +1,4 @@
 import Door from '@/components/Door'
-import { doorConfig } from '@/data'
-import { getRandomInt } from '@/utils'
 import Canvas from '@/components/Canvas'
 import Floor from '@/components/Floor'
 
