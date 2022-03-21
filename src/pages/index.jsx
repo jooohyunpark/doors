@@ -1,15 +1,14 @@
 import dynamic from 'next/dynamic'
-// import Shader from '@/components/canvas/Shader/Shader'
-import Scene from '@/components/canvas/Scene'
 import { doors, roomData } from '@/data'
+// import Scene from '@/components/canvas/Scene'
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
-// const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
-//   ssr: false,
-// })
+const Scene = dynamic(() => import('@/components/canvas/Scene'), {
+  ssr: false,
+})
 
 // dom components goes here
 const DOM = () => {
@@ -22,7 +21,6 @@ const R3F = () => {
 
   return (
     <>
-      {/* <Shader /> */}
       <Scene color={0x000000} doors={doors(data)} />
     </>
   )
@@ -43,7 +41,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Index',
+      title: 'Room',
     },
   }
 }
