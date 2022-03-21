@@ -2,7 +2,7 @@ import gsap from 'gsap'
 
 export const animateTo = (target, to) => {
   gsap.to(target, {
-    duration: 0.3,
+    duration: 0.25,
     ease: 'power2.inOut',
     ...to
   })
@@ -13,7 +13,7 @@ export const animateFromTo = (target, from, to) => {
     target,
     { ...from },
     {
-      duration: 0.3,
+      duration: 0.25,
       ease: 'power2.inOut',
       ...to
     }

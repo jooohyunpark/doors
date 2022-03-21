@@ -4,15 +4,22 @@ import { getRandomInt } from '@/utils'
 import Canvas from '@/components/Canvas'
 import Floor from '@/components/Floor'
 
-const Scene = () => {
+const Scene = ({ color = 0xffffff }) => {
   return (
     <Canvas>
-      <Floor />
-      {/* <ambientLight color={0x00ffff} intensity={1} /> */}
+      <Floor color={color} />
+      <ambientLight intensity={1} />
 
-      {/* <color attach="background" args={0x00ffff} /> */}
-
-      <Door color={0xffffff} position={[0, 0, 0]} rotation={[0, 0, 0]} url={'/'} />
+      <Door
+        color={0xffffff}
+        position={[
+          getRandomInt(-5, 5) * doorConfig.width * 3,
+          0,
+          getRandomInt(-5, 5) * doorConfig.width * 3
+        ]}
+        rotation={[0, Math.PI * getRandomInt(-2, 2) * 0.5, 0]}
+        url={'/'}
+      />
     </Canvas>
   )
 }

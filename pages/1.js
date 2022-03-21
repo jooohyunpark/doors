@@ -1,26 +1,20 @@
 import Head from 'next/head'
-import Scene from '@/components/scene/1'
-import { motion } from 'framer-motion'
+import Room from '@/components/Room'
+import Scene from '@/components/Scene/1'
 
-const Room = () => {
+const Page = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      exit={{ opacity: 0 }}>
+    <Room>
       <Head>
-        <title>Doors</title>
+        <title>Room 1</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Scene />
+        <Scene color={0x00ffff} />
       </main>
-
-      <footer></footer>
-    </motion.div>
+    </Room>
   )
 }
 
-export default Room
+export default Page
