@@ -11,7 +11,7 @@ const Page = () => {
       </Head>
 
       <main>
-        <Scene color={0x00ffff} />
+        <Scene color={0x00ff00} />
       </main>
     </Room>
   )

@@ -4,33 +4,16 @@ import { getRandomInt } from '@/utils'
 import Canvas from '@/components/Canvas'
 import Floor from '@/components/Floor'
 
-const Scene = () => {
-  const doors = (num = 10) => {
-    const data = []
-
-    for (let i = 0; i < num; i++) {
-      data.push({
-        position: [
-          getRandomInt(-5, 5) * doorConfig.width * 3,
-          0,
-          getRandomInt(-5, 5) * doorConfig.width * 3
-        ],
-        rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0]
-      })
-    }
-
-    return data
-  }
-
+const Scene = ({ doors = [], color = 0xffffff }) => {
   return (
     <Canvas>
       <Floor />
-      {/* <ambientLight intensity={1} /> */}
+      <ambientLight color={color} intensity={1} />
 
-      {doors(10).map((door, index) => {
+      {doors.map((door, index) => {
         return (
           <Door
-            color={0xffffff}
+            color={door.color}
             position={door.position}
             rotation={door.rotation}
             url={'/1'}

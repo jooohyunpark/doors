@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Room from '@/components/Room'
-import Scene from '@/components/Scene/1'
+import Scene from '@/components/Scene'
 
 const Page = () => {
   return (
