@@ -1,35 +1,52 @@
 {
   "name": "doors",
-  "version": "0.1.0",
+  "version": "2.0.0",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
+    "lint": "yarn prettier && yarn eslint",
+    "eslint": "next lint --fix --dir src",
+    "prettier": "prettier -l \"./src/**/*.{js,jsx,md}\"",
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "eslint --ext .js"
+    "build": "next build",
+    "export": "EXPORT=true next build && EXPORT=true next export",
+    "analyze": "ANALYZE=true next build",
+    "start": "next start"
   },
   "dependencies": {
-    "@react-three/drei": "^3.9.0",
-    "framer-motion": "^3.9.0",
-    "gsap": "^3.6.0",
-    "next": "^10.0.7",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-three-fiber": "^5.3.19",
-    "three": "^0.125.2"
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@react-three/drei": "^8.16.5",
+    "@react-three/fiber": "^7.0.26",
+    "babel-plugin-glsl": "^1.0.0",
+    "framer-motion": "^6.2.8",
+    "glsl-random": "^0.0.5",
+    "gsap": "^3.9.1",
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "three": "^0.138.3",
+    "three-stdlib": "^2.8.8",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.13",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "@next/bundle-analyzer": "^12.0.10",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.8.0",
+    "eslint-config-next": "^12.0.10",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-tailwind": "^0.2.1",
+    "file-loader": "^6.2.0",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
     "next-compose-plugins": "^2.2.1",
-    "next-transpile-modules": "^6.3.0",
-    "prettier": "^2.2.1",
-    "sass": "^1.49.9",
-    "styled-jsx-plugin-sass": "^1.0.0"
+    "next-offline": "^5.0.5",
+    "postcss": "^8.4.8",
+    "prettier": "^2.5.1",
+    "raw-loader": "^4.0.2",
+    "tailwindcss": "^3.0.18",
+    "url-loader": "^4.1.1"
   }
 }
