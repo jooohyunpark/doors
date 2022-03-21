@@ -1,26 +1,15 @@
 import Head from 'next/head'
 import Room from '@/components/Room'
 import Scene from '@/components/Scene'
-import { doorConfig } from '@/data'
-import { getRandomInt, shuffledArray } from '@/utils'
+import { doors } from '@/data'
 
 const Home = () => {
-  const doors = (num = 10) => {
-    const data = []
-
-    const xArray = shuffledArray(-5, 5)
-    const zArray = shuffledArray(-5, 5)
-
-    for (let i = 0; i < num; i++) {
-      data.push({
-        position: [xArray.pop() * doorConfig.width * 2, 0, zArray.pop() * doorConfig.width * 2],
-        rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],
-        color: 0xffffff
-      })
-    }
-
-    return data
-  }
+  const data = [
+    { color: 0x00ffff, url: '/1' },
+    { color: 0x00ffff, url: '/2' },
+    { color: 0xffffff, url: '/1' },
+    { color: 0xffffff, url: '/1' }
+  ]
 
   return (
     <Room>
@@ -30,7 +19,7 @@ const Home = () => {
       </Head>
 
       <main>
-        <Scene color={0x000000} doors={doors(10)} />
+        <Scene color={0x000000} doors={doors(data)} />
       </main>
     </Room>
   )

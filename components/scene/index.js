@@ -13,10 +13,10 @@ const Scene = ({ doors = [], color = 0xffffff }) => {
       {doors.map((door, index) => {
         return (
           <Door
-            color={door.color}
             position={door.position}
             rotation={door.rotation}
-            url={'/1'}
+            color={door.color}
+            url={door.url}
             key={index}
           />
         )
