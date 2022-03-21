@@ -30,7 +30,7 @@ const Home = () => {
       </Head>
 
       <main>
-        <Scene doors={doors(10)} />
+        <Scene color={0x000000} doors={doors(10)} />
       </main>
     </Room>
   )
