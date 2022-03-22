@@ -1,11 +1,9 @@
 import Door from '@/components/canvas/Door'
-import Floor from '@/components/canvas/Floor'
 
-const Scene = ({ doors = [], color = 0xffffff }) => {
+const Scene = ({ doors = [], color = '#000000' }) => {
   return (
     <>
       <color attach='background' args={[color]} />
-      {/* <ambientLight color={color} intensity={3} /> */}
 
       {doors.map((door, index) => {
         return (

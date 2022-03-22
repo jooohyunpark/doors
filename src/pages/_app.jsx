@@ -6,25 +6,19 @@ import Dom from '@/components/layout/dom'
 import partition from '@/helpers/partition'
 import '@/styles/index.css'
 import dynamic from 'next/dynamic'
-import { motion } from 'framer-motion'
 
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
-  ssr: false,
+  ssr: false
 })
 
 const Balance = ({ child }) => {
   const [r3f, dom] = partition(child, (c) => c.props.r3f === true)
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.25 }}
-      exit={{ opacity: 0 }}
-    >
+    <>
       <Dom>{dom}</Dom>
       <LCanvas>{r3f}</LCanvas>
-    </motion.div>
+    </>
   )
 }
 

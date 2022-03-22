@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react'
-import * as THREE from 'three'
 import Router from 'next/router'
 import { animateTo } from '@/utils'
 import { doorConfig } from '@/data'

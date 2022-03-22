@@ -11,8 +11,8 @@ const Control = () => {
       dampingFactor={0.05}
       enableRotate={true}
       rotateSpeed={0.5}
-      minPolarAngle={Math.PI * 0.5 * 0.8}
-      maxPolarAngle={Math.PI * 0.5 * 0.8}
+      minPolarAngle={Math.PI * 0.5 * 0.75}
+      maxPolarAngle={Math.PI * 0.5 * 0.75}
       enableZoom={false}
       minDistance={1000}
       maxDistance={1000}
@@ -32,8 +32,8 @@ const LCanvas = ({ children }) => {
       camera={{
         near: 0.1,
         far: 10000,
-        position: [10, 1, -10],
-        zoom: 3,
+        position: [1, 1, -1],
+        zoom: 3
       }}
       mode='concurrent'
       style={{
@@ -41,7 +41,7 @@ const LCanvas = ({ children }) => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100%'
       }}
       onCreated={(state) => state.events.connect(dom.current)}
     >
