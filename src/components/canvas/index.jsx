@@ -1,6 +1,5 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Preload } from '@react-three/drei'
-import useStore from '@/helpers/store'
 import { doorConfig } from '@/data'
 
 const Control = () => {
@@ -22,8 +21,6 @@ const Control = () => {
 }
 
 const LCanvas = ({ children }) => {
-  const dom = useStore((state) => state.dom)
-
   return (
     <Canvas
       orthographic
@@ -43,7 +40,6 @@ const LCanvas = ({ children }) => {
         width: '100%',
         height: '100%'
       }}
-      onCreated={(state) => state.events.connect(dom.current)}
     >
       <Control />
       <Preload all />
