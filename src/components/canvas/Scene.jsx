@@ -5,8 +5,7 @@ const Scene = ({ doors = [], color = 0xffffff }) => {
   return (
     <>
       <color attach='background' args={[color]} />
-      {/* <Floor /> */}
-      <ambientLight color={color} intensity={3} />
+      {/* <ambientLight color={color} intensity={3} /> */}
 
       {doors.map((door, index) => {
         return (

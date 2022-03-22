@@ -7,10 +7,14 @@ import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
 
 const Door = (props) => {
-  const { color = 0xffffff, position, rotation, url } = props
+  const {
+    color = 0xffffff,
+    position = [0, 0, 0],
+    rotation = [0, 0, 0],
+    url = '/'
+  } = props
 
-  const width = doorConfig.width
-  const height = doorConfig.height
+  const { width, height } = doorConfig
   const offsetY = height * 0.5
 
   const mesh = useRef()
@@ -37,10 +41,7 @@ const Door = (props) => {
   }, [hovered])
 
   return (
-    <group
-      position={position ? [position[0], position[1], position[2]] : [0, 0, 0]}
-      rotation={rotation ? [rotation[0], rotation[1], rotation[2]] : [0, 0, 0]}
-    >
+    <group position={position} rotation={rotation}>
       <mesh
         ref={mesh}
         position={[0, offsetY, 0]}
