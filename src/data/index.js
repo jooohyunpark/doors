@@ -8,7 +8,7 @@ export const doorConfig = {
 export const roomData = [
   { color: '#000000', url: '/' },
   { color: '#00008b', url: '/room/1' },
-  { color: '#013220', url: '/room/2' }
+  { color: '#468b00', url: '/room/2' }
 ]
 
 export const doors = (data = [{ color: 0xffffff, url: '/' }]) => {
