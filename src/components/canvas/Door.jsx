@@ -11,13 +11,7 @@ const Door = (props) => {
 
   const width = doorConfig.width
   const height = doorConfig.height
-
-  const scale = 1.2
-
-  const intensity = {
-    from: 1,
-    to: 100,
-  }
+  const offsetY = height * 0.5
 
   const mesh = useRef()
   const light = useRef()
@@ -32,24 +26,12 @@ const Door = (props) => {
 
   useEffect(() => {
     if (hovered) {
-      // animateTo(light.current, {
-      //   intensity: intensity.to,
-      //   width: width * scale,
-      //   height: height * scale,
-      // })
-      animateTo(mesh.current.scale, {
-        x: scale,
-        y: scale,
+      animateTo([mesh.current.scale, light.current.scale], {
+        x: 1.3
       })
     } else {
-      // animateTo(light.current, {
-      //   intensity: intensity.from,
-      //   width: width,
-      //   height: height,
-      // })
-      animateTo(mesh.current.scale, {
-        x: 1,
-        y: 1,
+      animateTo([mesh.current.scale, light.current.scale], {
+        x: 1
       })
     }
   }, [hovered])
@@ -61,7 +43,7 @@ const Door = (props) => {
     >
       <mesh
         ref={mesh}
-        position={[0, height * 0.5, 0]}
+        position={[0, offsetY, 0]}
         rotation={[0, Math.PI, 0]}
         onClick={() => {
           Router.push(url)
@@ -74,11 +56,11 @@ const Door = (props) => {
       </mesh>
 
       <mesh
+        ref={light}
         position={[0, 0, height * -1]}
         rotation={[Math.PI * 0.5, Math.PI, 0]}
       >
         <planeBufferGeometry args={[width, height * 2]} />
-        {/* <meshBasicMaterial color={color} transparent={true} opacity={0.5} /> */}
         <meshBasicMaterial>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want
@@ -87,14 +69,6 @@ const Door = (props) => {
           />
         </meshBasicMaterial>
       </mesh>
-
-      {/* <rectAreaLight
-        ref={light}
-        width={width}
-        height={height}
-        color={color}
-        intensity={intensity.from}
-      /> */}
     </group>
   )
 }
