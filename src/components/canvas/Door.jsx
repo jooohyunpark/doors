@@ -61,10 +61,10 @@ const Door = (props) => {
         rotation={[Math.PI * 0.5, Math.PI, 0]}
       >
         <planeBufferGeometry args={[width, height * 2]} />
-        <meshBasicMaterial>
+        <meshBasicMaterial transparent={true}>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want
-            colors={[color, hexToRGBA(color, 0.2)]} // Colors need to match the number of stops
+            colors={[color, hexToRGBA(color, 0)]} // Colors need to match the number of stops
             size={1024} // Size is optional, default = 1024
           />
         </meshBasicMaterial>

@@ -4,7 +4,7 @@ export const animateTo = (target, to) => {
   gsap.to(target, {
     duration: 0.25,
     ease: 'power2.inOut',
-    ...to,
+    ...to
   })
 }
 
@@ -15,7 +15,7 @@ export const animateFromTo = (target, from, to) => {
     {
       duration: 0.25,
       ease: 'power2.inOut',
-      ...to,
+      ...to
     }
   )
 }
@@ -37,23 +37,21 @@ export const shuffledArray = (min = -5, max = 5) => {
   return array.sort((a, b) => 0.5 - Math.random())
 }
 
-export const hexToRGBA = (h, a = 1) => {
-  let r = 0,
-    g = 0,
-    b = 0
+export const hexToRGBA = (hexCode, opacity = 1) => {
+  let hex = hexCode.replace('#', '')
 
-  if (h.length == 5) {
-    r = '0x' + h[1] + h[1]
-    g = '0x' + h[2] + h[2]
-    b = '0x' + h[3] + h[3]
-    a = '0x' + h[4] + h[4]
-  } else if (h.length == 9) {
-    r = '0x' + h[1] + h[2]
-    g = '0x' + h[3] + h[4]
-    b = '0x' + h[5] + h[6]
-    a = '0x' + h[7] + h[8]
+  if (hex.length === 3) {
+    hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`
   }
-  a = +(a / 255).toFixed(3)
 
-  return 'rgba(' + +r + ',' + +g + ',' + +b + ',' + a + ')'
+  const r = parseInt(hex.substring(0, 2), 16)
+  const g = parseInt(hex.substring(2, 4), 16)
+  const b = parseInt(hex.substring(4, 6), 16)
+
+  /* Backward compatibility for whole number based opacity values. */
+  if (opacity > 1 && opacity <= 100) {
+    opacity = opacity / 100
+  }
+
+  return `rgba(${r},${g},${b},${opacity})`
 }

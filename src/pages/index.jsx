@@ -1,6 +1,6 @@
 import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
-import Canvas from '@/components/canvas'
+import LCanvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
 
 const index = 0
@@ -15,9 +15,9 @@ const Page = () => {
       transition={{ duration: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Canvas>
-        <Scene color={roomData[0].color} doors={doors(data)} />
-      </Canvas>
+      <LCanvas>
+        <Scene color={roomData[index].color} doors={doors(data)} />
+      </LCanvas>
     </Main>
   )
 }
