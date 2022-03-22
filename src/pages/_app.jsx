@@ -1,6 +1,6 @@
 import Header from '@/config'
-import '@/styles/index.css'
 import { AnimatePresence } from 'framer-motion'
+import '@/styles/index.css'
 
 function App({ Component, pageProps = { title: 'index' } }) {
   return (
