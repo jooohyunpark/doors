@@ -6,9 +6,18 @@ export const doorConfig = {
 }
 
 export const roomData = [
-  { color: '#000000', url: '/' },
-  { color: '#00008b', url: '/room/1' },
-  { color: '#468b00', url: '/room/2' }
+  { id: 0, color: '#000000', url: '/' },
+  { id: 1, color: '#00008b', url: '/room/1' },
+  { id: 2, color: '#468b00', url: '/room/2' },
+  { id: 3, color: '#ffc0cb', url: '/room/3' },
+  { id: 4, color: '#c0cbff', url: '/room/4' },
+  { id: 5, color: '#ffe4c0', url: '/room/5' },
+  { id: 6, color: '#ff0f76', url: '/room/6' },
+  { id: 7, color: '#53c200', url: '/room/7' },
+  { id: 8, color: '#c200b4', url: '/room/8' },
+  { id: 9, color: '#4646cc', url: '/room/9' },
+  { id: 10, color: '#46cccc', url: '/room/10' },
+  { id: 11, color: '#f9d419', url: '/room/11' }
 ]
 
 export const doors = (data = [{ color: 0xffffff, url: '/' }]) => {
