@@ -1,6 +1,6 @@
 import { getRandomInt, shuffledArray } from '@/utils'
 
-export const exitConfig = {
+export const doorConfig = {
   width: 10,
   height: 10 * 1.618
 }
@@ -20,7 +20,7 @@ export const roomData = [
   { id: 11, color: '#f9d419', url: '/room/11' }
 ]
 
-export const exits = (data = [{ color: 0xffffff, url: '/' }]) => {
+export const doors = (data = [{ color: 0xffffff, url: '/' }]) => {
   const array = []
 
   const range = [-5, 5]
@@ -32,9 +32,9 @@ export const exits = (data = [{ color: 0xffffff, url: '/' }]) => {
   for (let i = 0; i < data.length; i++) {
     array.push({
       position: [
-        xArray.pop() * exitConfig.width * offset,
+        xArray.pop() * doorConfig.width * offset,
         0,
-        zArray.pop() * exitConfig.width * offset
+        zArray.pop() * doorConfig.width * offset
       ],
       rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],
       color: data[i].color,

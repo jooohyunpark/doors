@@ -1,4 +1,4 @@
-import { exits, roomData } from '@/data'
+import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
 import Canvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
@@ -14,7 +14,7 @@ const Room = ({ id = '' }) => {
       <Canvas>
         <Scene
           color={roomData.find((room) => room.id === +id).color}
-          exits={exits(roomData.filter((room) => room.id !== +id))}
+          doors={doors(roomData.filter((room) => room.id !== +id))}
         />
       </Canvas>
     </Main>

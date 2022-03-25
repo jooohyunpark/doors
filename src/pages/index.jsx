@@ -1,4 +1,4 @@
-import { exits, roomData } from '@/data'
+import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
 import LCanvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
@@ -16,7 +16,7 @@ const Page = () => {
       exit={{ opacity: 0 }}
     >
       <LCanvas>
-        <Scene color={roomData[index].color} exits={exits(data)} />
+        <Scene color={roomData[index].color} doors={doors(data)} />
       </LCanvas>
     </Main>
   )
@@ -27,7 +27,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Exits'
+      title: 'Doors'
     }
   }
 }
