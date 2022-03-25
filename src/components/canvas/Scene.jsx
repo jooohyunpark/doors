@@ -1,17 +1,17 @@
-import Door from '@/components/canvas/Door'
+import Exit from '@/components/canvas/Exit'
 
-const Scene = ({ doors = [], color = '#000000' }) => {
+const Scene = ({ exits = [], color = '#000000' }) => {
   return (
     <>
       <color attach='background' args={[color]} />
 
-      {doors.map((door, index) => {
+      {exits.map((exit, index) => {
         return (
-          <Door
-            position={door.position}
-            rotation={door.rotation}
-            color={door.color}
-            url={door.url}
+          <Exit
+            position={exit.position}
+            rotation={exit.rotation}
+            color={exit.color}
+            url={exit.url}
             key={index}
           />
         )

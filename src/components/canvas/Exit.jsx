@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
 import Router from 'next/router'
 import { animateTo } from '@/utils'
-import { doorConfig } from '@/data'
+import { exitConfig } from '@/data'
 import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
 
-const Door = (props) => {
+const Exit = (props) => {
   const {
     color = 0xffffff,
     position = [0, 0, 0],
@@ -13,7 +13,7 @@ const Door = (props) => {
     url = '/'
   } = props
 
-  const { width, height } = doorConfig
+  const { width, height } = exitConfig
   const offsetY = height * 0.5
 
   const mesh = useRef()
@@ -23,7 +23,7 @@ const Door = (props) => {
 
   useEffect(() => {
     return () => {
-      console.log('destory door')
+      console.log('destory exit')
     }
   }, [])
 
@@ -73,4 +73,4 @@ const Door = (props) => {
   )
 }
 
-export default Door
+export default Exit

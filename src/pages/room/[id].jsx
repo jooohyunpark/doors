@@ -1,22 +1,9 @@
-import Router, { useRouter } from 'next/router'
-import { doors, roomData } from '@/data'
+import { exits, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
 import Canvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
 
-const Room = () => {
-  const router = useRouter()
-  const { id } = router.query
-
-  const lastId = [...roomData].pop().id
-
-  if (!id) return null
-
-  if (+id && +id > lastId) {
-    Router.push('/')
-    return null
-  }
-
+const Room = ({ id = '' }) => {
   return (
     <Main
       initial={{ opacity: 0 }}
@@ -27,19 +14,35 @@ const Room = () => {
       <Canvas>
         <Scene
           color={roomData.find((room) => room.id === +id).color}
-          doors={doors(roomData.filter((room) => room.id !== +id))}
+          exits={exits(roomData.filter((room) => room.id !== +id))}
         />
       </Canvas>
     </Main>
   )
 }
 
+export async function getStaticPaths() {
+  const paths = roomData
+    .filter((data) => data.id > 0)
+    .map((data) => ({
+      params: {
+        id: data.id.toString()
+      }
+    }))
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+
 export default Room
 
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       title: 'Room '
-//     }
-//   }
-// }
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      title: 'Room ' + params.id,
+      id: params.id
+    }
+  }
+}

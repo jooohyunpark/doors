@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Preload } from '@react-three/drei'
-import { doorConfig } from '@/data'
+import { exitConfig } from '@/data'
 
 const Control = () => {
   return (
@@ -15,7 +15,7 @@ const Control = () => {
       enableZoom={false}
       minDistance={1000}
       maxDistance={1000}
-      target={[0, doorConfig.height * 0.5, 0]}
+      target={[0, exitConfig.height * 0.5, 0]}
     />
   )
 }
