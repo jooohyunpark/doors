@@ -17,6 +17,9 @@ const Door = (props) => {
   const { width, height } = doorConfig
   const offsetY = height * 0.5
 
+  const lightWidth = width
+  const lightHeight = height * 2
+
   const mesh = useRef()
   const light = useRef()
 
@@ -27,7 +30,7 @@ const Door = (props) => {
     light_scale: hovered ? [1.3, 1, 1] : [1, 1, 1],
     light_opacity: hovered ? 1 : 0.5,
     config: {
-      duration: 250
+      duration: 200
     }
   })
 
@@ -52,10 +55,10 @@ const Door = (props) => {
       <animated.mesh
         ref={light}
         scale={light_scale}
-        position={[0, 0, height * -1]}
+        position={[0, 0, lightHeight * -0.5]}
         rotation={[Math.PI * 0.5, Math.PI, 0]}
       >
-        <planeBufferGeometry args={[width, height * 2]} />
+        <planeBufferGeometry args={[lightWidth, lightHeight]} />
         <animated.meshBasicMaterial transparent={true} opacity={light_opacity}>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want

@@ -12,9 +12,9 @@ const Control = () => {
       rotateSpeed={0.5}
       minPolarAngle={Math.PI * 0.5 * 0.75}
       maxPolarAngle={Math.PI * 0.5 * 0.75}
-      // enableZoom={false}
-      // minDistance={1000}
-      // maxDistance={1000}
+      enableZoom={false}
+      minDistance={1000}
+      maxDistance={1000}
       target={[0, doorConfig.height * 0.5, 0]}
     />
   )
