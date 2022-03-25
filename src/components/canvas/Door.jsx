@@ -1,6 +1,5 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import Router from 'next/router'
-// import { animateTo } from '@/utils'
 import { doorConfig } from '@/data'
 import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
