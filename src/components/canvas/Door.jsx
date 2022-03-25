@@ -63,7 +63,7 @@ const Door = (props) => {
         <meshBasicMaterial transparent={true}>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want
-            colors={[color, hexToRGBA(color, 0)]} // Colors need to match the number of stops
+            colors={[hexToRGBA(color, 0.5), hexToRGBA(color, 0)]} // Colors need to match the number of stops
             size={1024} // Size is optional, default = 1024
           />
         </meshBasicMaterial>
