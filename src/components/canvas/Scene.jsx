@@ -5,14 +5,14 @@ const Scene = ({ doors = [], color = '#000000' }) => {
     <>
       <color attach='background' args={[color]} />
 
-      {doors.map((door, index) => {
+      {doors.map((door, i) => {
         return (
           <Door
             position={door.position}
             rotation={door.rotation}
             color={door.color}
-            url={door.url}
-            key={index}
+            id={door.id}
+            key={i}
           />
         )
       })}

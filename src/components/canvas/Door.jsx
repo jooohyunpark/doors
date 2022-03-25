@@ -10,7 +10,7 @@ const Door = (props) => {
     color = 0xffffff,
     position = [0, 0, 0],
     rotation = [0, 0, 0],
-    url = '/'
+    id = 0
   } = props
 
   const { width, height } = doorConfig
@@ -22,9 +22,7 @@ const Door = (props) => {
   const [hovered, setHover] = useState(false)
 
   useEffect(() => {
-    return () => {
-      console.log('destory door')
-    }
+    return () => {}
   }, [])
 
   useEffect(() => {
@@ -46,7 +44,8 @@ const Door = (props) => {
         position={[0, offsetY, 0]}
         rotation={[0, Math.PI, 0]}
         onClick={() => {
-          Router.push(url)
+          if (id === 0) Router.push('/')
+          else Router.push('/room/[id]', `/room/${id}`)
         }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}

@@ -3,11 +3,7 @@ import Scene from '@/components/canvas/Scene'
 import LCanvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
 
-const index = 0
-
-const Page = () => {
-  const data = roomData.filter((room, i) => i !== index)
-
+const Page = ({ id = 0 }) => {
   return (
     <Main
       initial={{ opacity: 0 }}
@@ -16,7 +12,10 @@ const Page = () => {
       exit={{ opacity: 0 }}
     >
       <LCanvas>
-        <Scene color={roomData[index].color} doors={doors(data)} />
+        <Scene
+          color={roomData[id].color}
+          doors={doors(roomData.filter((room) => room.id !== id))}
+        />
       </LCanvas>
     </Main>
   )

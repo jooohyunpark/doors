@@ -11,8 +11,8 @@
     "eslint": "next lint --fix --dir src",
     "prettier": "prettier -l \"./src/**/*.{js,jsx,md}\"",
     "dev": "next dev",
-    "build": "next build",
-    "export": "EXPORT=true next build && EXPORT=true next export",
+    "build": "next build && next export",
+    "export": "rm -rf ./out && EXPORT=true next build && EXPORT=true next export",
     "analyze": "ANALYZE=true next build",
     "start": "next start"
   },

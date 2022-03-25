@@ -42,7 +42,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       title: 'Room ' + params.id,
-      id: params.id
+      id: params.id,
+      key: params.id // to destroy component on route change
     }
   }
 }
