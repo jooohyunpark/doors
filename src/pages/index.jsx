@@ -5,12 +5,7 @@ import Main from '@/components/dom/Main'
 
 const Page = ({ id = 0 }) => {
   return (
-    <Main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <Main>
       <LCanvas>
         <Scene
           color={roomData[id].color}

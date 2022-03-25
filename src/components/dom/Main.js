@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 
-const Main = ({ children = null }) => {
+const Main = ({ children = null, id = '' }) => {
   return (
     <motion.main
+      key={id}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      door={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
     >
       {children}
     </motion.main>

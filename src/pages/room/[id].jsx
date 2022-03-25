@@ -5,12 +5,7 @@ import Main from '@/components/dom/Main'
 
 const Room = ({ id = '' }) => {
   return (
-    <Main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <Main id={id}>
       <Canvas>
         <Scene
           color={roomData.find((room) => room.id === +id).color}

@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from 'react'
 import Router from 'next/router'
-import { animateTo } from '@/utils'
+// import { animateTo } from '@/utils'
 import { doorConfig } from '@/data'
 import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
+import { useSpring, animated } from '@react-spring/three'
 
 const Door = (props) => {
   const {
@@ -21,26 +22,20 @@ const Door = (props) => {
 
   const [hovered, setHover] = useState(false)
 
-  useEffect(() => {
-    return () => {}
-  }, [])
-
-  useEffect(() => {
-    if (hovered) {
-      animateTo([mesh.current.scale, light.current.scale], {
-        x: 1.3
-      })
-    } else {
-      animateTo([mesh.current.scale, light.current.scale], {
-        x: 1
-      })
+  const { door_scale, light_scale, light_opacity } = useSpring({
+    door_scale: hovered ? [1.3, 1, 1] : [1, 1, 1],
+    light_scale: hovered ? [1.3, 1, 1] : [1, 1, 1],
+    light_opacity: hovered ? 1 : 0.5,
+    config: {
+      duration: 250
     }
-  }, [hovered])
+  })
 
   return (
     <group position={position} rotation={rotation}>
-      <mesh
+      <animated.mesh
         ref={mesh}
+        scale={door_scale}
         position={[0, offsetY, 0]}
         rotation={[0, Math.PI, 0]}
         onClick={() => {
@@ -52,22 +47,23 @@ const Door = (props) => {
       >
         <planeBufferGeometry args={[width, height]} />
         <meshBasicMaterial color={color} />
-      </mesh>
+      </animated.mesh>
 
-      <mesh
+      <animated.mesh
         ref={light}
+        scale={light_scale}
         position={[0, 0, height * -1]}
         rotation={[Math.PI * 0.5, Math.PI, 0]}
       >
         <planeBufferGeometry args={[width, height * 2]} />
-        <meshBasicMaterial transparent={true}>
+        <animated.meshBasicMaterial transparent={true} opacity={light_opacity}>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want
-            colors={[hexToRGBA(color, 0.5), hexToRGBA(color, 0)]} // Colors need to match the number of stops
+            colors={[hexToRGBA(color, 0.75), hexToRGBA(color, 0)]} // Colors need to match the number of stops
             size={1024} // Size is optional, default = 1024
           />
-        </meshBasicMaterial>
-      </mesh>
+        </animated.meshBasicMaterial>
+      </animated.mesh>
     </group>
   )
 }
