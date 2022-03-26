@@ -1,6 +1,6 @@
 import { doorConfig } from '@/data'
 const Floor = () => {
-  const { width, height, range, offset } = doorConfig
+  const { width, range, offset } = doorConfig
 
   const size = width * offset * range[1]
 

@@ -35,6 +35,7 @@ export const doors = (data = [{ color: 0xffffff, id: 0 }]) => {
       position: [
         xArray.pop() * doorConfig.width * offset,
         0,
+
         zArray.pop() * doorConfig.width * offset
       ],
       rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],

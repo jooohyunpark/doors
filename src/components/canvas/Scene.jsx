@@ -4,7 +4,7 @@ import Floor from '@/components/canvas/Floor'
 const Scene = ({ doors = [], color = '#000000' }) => {
   return (
     <>
-      <Floor />
+      {/* <Floor /> */}
       <color attach='background' args={[color]} />
 
       {doors.map((door, i) => {
