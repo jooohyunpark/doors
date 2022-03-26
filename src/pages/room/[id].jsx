@@ -1,7 +1,9 @@
 import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
-import Canvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
+import dynamic from 'next/dynamic'
+
+const Canvas = dynamic(() => import('@/components/canvas'), { ssr: false })
 
 const Room = ({ id = '' }) => {
   return (

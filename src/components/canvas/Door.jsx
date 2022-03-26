@@ -5,14 +5,12 @@ import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
 import { useSpring, animated } from '@react-spring/three'
 
-const Door = (props) => {
-  const {
-    color = 0xffffff,
-    position = [0, 0, 0],
-    rotation = [0, 0, 0],
-    id = 0
-  } = props
-
+const Door = ({
+  color = 0xffffff,
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  id = 0
+}) => {
   const { width, height } = doorConfig
   const offsetY = height * 0.5
 

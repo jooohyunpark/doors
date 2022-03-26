@@ -1,17 +1,19 @@
 import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
-import LCanvas from '@/components/canvas'
 import Main from '@/components/dom/Main'
+import dynamic from 'next/dynamic'
+
+const Canvas = dynamic(() => import('@/components/canvas'), { ssr: false })
 
 const Page = ({ id = 0 }) => {
   return (
     <Main>
-      <LCanvas>
+      <Canvas>
         <Scene
           color={roomData[id].color}
           doors={doors(roomData.filter((room) => room.id !== id))}
         />
-      </LCanvas>
+      </Canvas>
     </Main>
   )
 }

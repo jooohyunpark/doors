@@ -24,7 +24,7 @@ const LCanvas = ({ children }) => {
   return (
     <Canvas
       orthographic
-      colorManagement
+      dpr={window.devicePixelRatio}
       gl={{ antialias: true }}
       camera={{
         near: 0.1,
