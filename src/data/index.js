@@ -2,7 +2,9 @@ import { getRandomInt, shuffledArray } from '@/utils'
 
 export const doorConfig = {
   width: 10,
-  height: 10 * 1.618
+  height: 10 * 1.618,
+  range: [-5, 5],
+  offset: 4
 }
 
 export const roomData = [
@@ -23,8 +25,7 @@ export const roomData = [
 export const doors = (data = [{ color: 0xffffff, id: 0 }]) => {
   const array = []
 
-  const range = [-5, 5]
-  const offset = 4
+  const { offset, range } = doorConfig
 
   const xArray = shuffledArray(range[0], range[1])
   const zArray = shuffledArray(range[0], range[1])
