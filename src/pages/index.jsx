@@ -11,7 +11,7 @@ const Page = ({ id = 0 }) => {
       <Canvas>
         <Scene
           color={roomData[id].color}
-          doors={doors(roomData.filter((room) => room.id !== id))}
+          data={doors(roomData.filter((room) => room.id !== id))}
         />
       </Canvas>
     </Main>
