@@ -19,9 +19,12 @@ const Colors = () => {
             style={{
               background: d.color,
               width: '20px',
-              height: '20px'
+              height: '20px',
+              color: '#000'
             }}
-          ></div>
+          >
+            {d.id}
+          </div>
         )
       })}
     </div>

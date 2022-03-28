@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Colors from '@/components/dom/Colors'
 
 const Main = ({ children = null, id = '' }) => {
   return (
@@ -9,6 +10,7 @@ const Main = ({ children = null, id = '' }) => {
       transition={{ duration: 1 }}
       exit={{ opacity: 0 }}
     >
+      <Colors />
       {children}
     </motion.main>
   )
