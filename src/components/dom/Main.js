@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Colors from '@/components/dom/Colors'
+import Palette from '@/components/dom/Palette'
 
 const Main = ({ children = null, id = '' }) => {
   return (
@@ -10,7 +10,7 @@ const Main = ({ children = null, id = '' }) => {
       transition={{ duration: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Colors />
+      <Palette />
       {children}
     </motion.main>
   )

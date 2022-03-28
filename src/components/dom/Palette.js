@@ -1,6 +1,6 @@
 import { roomData } from '@/data'
 
-const Colors = () => {
+const Palette = () => {
   return (
     <div
       style={{
@@ -38,4 +38,4 @@ const Colors = () => {
   )
 }
 
-export default Colors
+export default Palette
