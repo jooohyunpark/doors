@@ -27,15 +27,15 @@ const pantone_colors = {
 export const roomData = [
   { id: 0, color: '#000000' },
   { id: 1, color: pantone_colors[2010] },
-  { id: 2, color: pantone_colors[2019] },
+  { id: 2, color: '#f7caca' },
   { id: 3, color: '#fc8a17' },
   { id: 4, color: '#00573f' },
   { id: 5, color: pantone_colors[2009] },
-  { id: 6, color: '#d01c1f' },
+  { id: 6, color: '#fa7268' },
   { id: 7, color: pantone_colors[2016][0] },
-  { id: 8, color: pantone_colors[2017] },
+  { id: 8, color: '#3F8070' },
   { id: 9, color: pantone_colors[2022] },
-  { id: 10, color: '#0018a8' },
+  { id: 10, color: '#0f4c81' },
   { id: 11, color: pantone_colors[2021][0] }
 ]
 
