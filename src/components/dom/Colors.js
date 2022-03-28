@@ -9,21 +9,28 @@ const Colors = () => {
         top: 0,
         zIndex: 1,
         display: 'flex',
-        padding: '20px'
+        padding: '30px'
       }}
     >
       {roomData.map((d, i) => {
         return (
-          <div
-            key={i}
-            style={{
-              background: d.color,
-              width: '20px',
-              height: '20px',
-              color: '#000'
-            }}
-          >
-            {d.id}
+          <div key={i}>
+            <div
+              style={{
+                background: d.color,
+                width: '30px',
+                height: '30px',
+                color: '#000'
+              }}
+            ></div>
+            <p
+              style={{
+                background: '#000',
+                color: '#fff'
+              }}
+            >
+              {d.id}
+            </p>
           </div>
         )
       })}
