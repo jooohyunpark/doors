@@ -1,13 +1,15 @@
+import dynamic from 'next/dynamic'
 import { doors, roomData } from '@/data'
 import Scene from '@/components/canvas/Scene'
 import Main from '@/components/dom/Main'
-import dynamic from 'next/dynamic'
+import Colors from '@/components/dom/Colors'
 
 const Canvas = dynamic(() => import('@/components/canvas'), { ssr: false })
 
 const Page = ({ id = 0 }) => {
   return (
     <Main>
+      <Colors />
       <Canvas>
         <Scene
           color={roomData[id].color}

@@ -10,7 +10,7 @@ export const doorConfig = {
 export const roomData = [
   { id: 0, color: '#000000' },
   { id: 1, color: '#5200ff' },
-  { id: 2, color: '#ffbb73' },
+  { id: 2, color: '#fbe404' },
   { id: 3, color: '#d0f7d9' },
   { id: 4, color: '#a2d5ab' },
   { id: 5, color: '#e5efc1' },
