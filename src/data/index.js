@@ -1,4 +1,5 @@
 import { getRandomInt, shuffledArray } from '@/utils'
+const randomColor = require('randomcolor')
 
 export const doorConfig = {
   width: 10,
@@ -7,37 +8,27 @@ export const doorConfig = {
   offset: 4
 }
 
-const pantone_colors = {
-  2009: '#efc050',
-  2010: '#45b8ac',
-  2011: '#ff6586',
-  2012: '#e2492f',
-  2013: '#009b77',
-  2014: '#b565a7',
-  2015: '#ad655f',
-  2016: ['#f2ddde', '#89abe3'],
-  2017: '#84bd00',
-  2018: '#654ea3',
-  2019: '#ff6d70',
-  2020: '#0f4c81',
-  2021: ['#939597', '#f5df4d'],
-  2022: '#6667AB'
-}
-
 export const roomData = [
   { id: 0, color: '#000000' },
-  { id: 1, color: pantone_colors[2010] },
-  { id: 2, color: '#f7caca' },
-  { id: 3, color: '#fc8a17' },
-  { id: 4, color: '#00573f' },
-  { id: 5, color: pantone_colors[2009] },
-  { id: 6, color: '#fa7268' },
-  { id: 7, color: pantone_colors[2016][0] },
-  { id: 8, color: '#3F8070' },
-  { id: 9, color: pantone_colors[2022] },
-  { id: 10, color: '#0f4c81' },
-  { id: 11, color: pantone_colors[2021][0] }
+  ...randomColor({ count: 10 }).map((color, i) => {
+    return { color: color, id: i + 1 }
+  })
 ]
+
+// export const roomData = [
+//   { id: 0, color: '#000000' },
+//   { id: 1, color: pantone_colors[2010] },
+//   { id: 2, color: '#f7caca' },
+//   { id: 3, color: '#fc8a17' },
+//   { id: 4, color: '#00573f' },
+//   { id: 5, color: pantone_colors[2009] },
+//   { id: 6, color: '#fa7268' },
+//   { id: 7, color: pantone_colors[2016][0] },
+//   { id: 8, color: '#3F8070' },
+//   { id: 9, color: pantone_colors[2022] },
+//   { id: 10, color: '#0f4c81' },
+//   { id: 11, color: pantone_colors[2021][0] }
+// ]
 
 export const doors = (data = [{ color: 0xffffff, id: 0 }]) => {
   const array = []

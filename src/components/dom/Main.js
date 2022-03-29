@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion'
-import Palette from '@/components/dom/Palette'
+import dynamic from 'next/dynamic'
+
+const Palette = dynamic(() => import('@/components/dom/Palette'), {
+  ssr: false
+})
 
 const Main = ({ children = null, id = '' }) => {
   return (
