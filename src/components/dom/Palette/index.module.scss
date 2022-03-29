@@ -21,7 +21,7 @@ $size: 30px;
     padding: 2px 0;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 576px) {
     left: $size / 2;
     top: $size / 2;
 
