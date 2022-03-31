@@ -6,8 +6,6 @@ const Palette = () => {
   const [on, setOn] = useState(false)
 
   useEffect(() => {
-    console.log('[Shift + P] to toggle palette')
-
     const keypress = (e) => {
       if (e.keyCode === 80) setOn((prev) => !prev)
     }
