@@ -1,6 +1,6 @@
 import Header from '@/config'
 import { AnimatePresence } from 'framer-motion'
-import '@/styles/index.css'
+import '@/styles/index.scss'
 import dynamic from 'next/dynamic'
 
 const Palette = dynamic(() => import('@/components/dom/Palette'), {
