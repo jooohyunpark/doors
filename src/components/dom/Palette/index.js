@@ -7,6 +7,7 @@ const Palette = () => {
 
   useEffect(() => {
     const keypress = (e) => {
+      // show palette on shift + p
       if (e.keyCode === 80) setOn((prev) => !prev)
     }
 
@@ -17,23 +18,24 @@ const Palette = () => {
     }
   }, [])
 
-  return on ? (
-    <div className={styles.palette}>
-      {roomData.map((d, i) => {
-        return (
-          <div key={i}>
-            <div
-              className={styles.panel}
-              style={{
-                background: d.color
-              }}
-            ></div>
-            <p className={styles.label}>{d.id}</p>
-          </div>
-        )
-      })}
-    </div>
-  ) : null
+  return (
+    on && (
+      <div className={styles.palette}>
+        {roomData.map((d, i) => {
+          return (
+            <div key={i}>
+              <div
+                className={styles.panel}
+                style={{
+                  background: d.color
+                }}></div>
+              <p className={styles.label}>{d.id}</p>
+            </div>
+          )
+        })}
+      </div>
+    )
+  )
 }
 
 export default Palette

@@ -6,7 +6,7 @@ const Floor = () => {
 
   return (
     <mesh position={[0, -0.1, 0]} rotation={[-Math.PI * 0.5, 0, 0]}>
-      <planeBufferGeometry args={[size * 2, size * 2]} />
+      <planeGeometry args={[size * 2, size * 2]} />
       <meshBasicMaterial color={0x000000} />
     </mesh>
   )

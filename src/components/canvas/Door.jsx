@@ -5,12 +5,7 @@ import { GradientTexture } from '@react-three/drei'
 import { hexToRGBA } from '@/utils'
 import { useSpring, animated } from '@react-spring/three'
 
-const Door = ({
-  color = 0xffffff,
-  position = [0, 0, 0],
-  rotation = [0, 0, 0],
-  id = 0
-}) => {
+const Door = ({ color = 0xffffff, position = [0, 0, 0], rotation = [0, 0, 0], id = 0 }) => {
   const { width, height } = doorConfig
   const offsetY = height * 0.5
 
@@ -43,9 +38,8 @@ const Door = ({
           else Router.push('/room/[id]', `/room/${id}`)
         }}
         onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
-      >
-        <planeBufferGeometry args={[width, height]} />
+        onPointerOut={() => setHover(false)}>
+        <planeGeometry args={[width, height]} />
         <meshBasicMaterial color={color} />
       </animated.mesh>
 
@@ -53,9 +47,8 @@ const Door = ({
         ref={light}
         scale={light_scale}
         position={[0, 0, lightHeight * -0.5]}
-        rotation={[Math.PI * 0.5, Math.PI, 0]}
-      >
-        <planeBufferGeometry args={[lightWidth, lightHeight]} />
+        rotation={[Math.PI * 0.5, Math.PI, 0]}>
+        <planeGeometry args={[lightWidth, lightHeight]} />
         <animated.meshBasicMaterial transparent={true} opacity={light_opacity}>
           <GradientTexture
             stops={[0, 1]} // As many stops as you want
