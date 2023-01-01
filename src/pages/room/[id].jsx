@@ -1,21 +1,21 @@
 import { doors, roomData } from '@/data'
-import Scene from '@/components/canvas/Scene'
-import Main from '@/components/dom/Main'
 import dynamic from 'next/dynamic'
 
-const Canvas = dynamic(() => import('@/components/canvas'), { ssr: false })
+// Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
+// WARNING ! errors might get obfuscated by using dynamic import.
+// If something goes wrong go back to a static import to show the error.
+// https://github.com/pmndrs/react-three-next/issues/49
+const Room = dynamic(() => import('@/components/canvas/Room'), { ssr: false })
 
-const Room = ({ id = '' }) => {
-  return (
-    <Main id={id}>
-      <Canvas>
-        <Scene
-          color={roomData.find((room) => room.id === +id).color}
-          data={doors(roomData.filter((room) => room.id !== +id))}
-        />
-      </Canvas>
-    </Main>
-  )
+// Dom components go here
+export default function Page(props) {
+  return <></>
+}
+
+// Canvas components go here
+// It will receive same props as the Page component (from getStaticProps, etc.)
+Page.canvas = ({ id = 0 }) => {
+  return <Room color={roomData[id].color} data={doors(roomData.filter((room) => room.id !== id))} />
 }
 
 export async function getStaticPaths() {
@@ -32,8 +32,6 @@ export async function getStaticPaths() {
     fallback: false
   }
 }
-
-export default Room
 
 export async function getStaticProps({ params }) {
   return {
