@@ -6,16 +6,12 @@ const Palette = () => {
   const [on, setOn] = useState(false)
 
   useEffect(() => {
-    const keypress = (e) => {
+    document.onkeydown = (e) => {
       // show palette on shift + p
-      if (e.keyCode === 80) setOn((prev) => !prev)
+      if (e.shiftKey && e.code === 'KeyP') setOn((prev) => !prev)
     }
 
-    document.addEventListener('keypress', keypress)
-
-    return () => {
-      document.removeEventListener('keypress', keypress)
-    }
+    return () => {}
   }, [])
 
   return (
