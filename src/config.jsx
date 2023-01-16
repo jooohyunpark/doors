@@ -19,10 +19,7 @@ export default function Header({ title = titleDefault }) {
       {/* Search Engine Optimization Meta Tags */}
       <title>{title}</title>
       <meta name='description' content={description} />
-      <meta
-        name='keywords'
-        content='Software Engineer,Product Manager,Project Manager,Data Scientist,Computer Scientist'
-      />
+
       <meta name='robots' content='index,follow' />
       <meta name='distribution' content='web' />
       {/* 
@@ -55,7 +52,7 @@ export default function Header({ title = titleDefault }) {
         documentation: https://dev.twitter.com/cards/getting-started
         Be sure validate your Twitter card markup on the documentation site. */}
       <meta name='twitter:card' content='summary' />
-      <meta name='twitter:site' content='@onirenaud' />
+      <meta name='twitter:site' content='@jooohyunpark' />
     </Head>
   )
 }
