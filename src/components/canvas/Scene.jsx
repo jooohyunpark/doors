@@ -8,20 +8,14 @@ export default function Scene({ children, ...props }) {
     <Canvas
       orthographic
       gl={{ antialias: true }}
+      flat
       camera={{
-        near: 0.1,
+        near: 0,
         far: 10000,
         position: [1, 1, -1],
         zoom: 3
       }}
       mode='concurrent'
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%'
-      }}
       {...props}>
       {children}
 
