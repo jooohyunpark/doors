@@ -12,6 +12,8 @@ const nextConfig = {
   // compiler: {
   //   styledComponents: true,
   // },
+  trailingSlash: true,
+
   experimental: {},
   images: {},
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
