@@ -1,5 +1,5 @@
 import { getRandomInt, shuffledArray } from '@/utils'
-const randomColor = require('randomcolor')
+// const randomColor = require('randomcolor')
 
 export const doorConfig = {
   width: 10,
