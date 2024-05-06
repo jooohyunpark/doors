@@ -1,5 +1,5 @@
 import { doors, roomData, getRoomData } from "@/data";
-import Room from "@/components/Room";
+import Room from "@/components/Three/Room";
 
 export default function Page({ id = 1 }) {
   return (

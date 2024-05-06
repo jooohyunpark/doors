@@ -1,6 +1,5 @@
-import Door from "@/components/Door";
-import Scene from "@/components/Scene";
-// import Floor from "./Floor";
+import Door from "@/components/Three/Door";
+import Scene from "@/components/Three/Scene";
 
 const Room = ({ data = [], color = "#000000" }) => {
   return (
