@@ -19,8 +19,6 @@ export default function Scene({ children, ...props }) {
     >
       {children}
 
-      <Preload all />
-
       <OrbitControls
         enablePan={false}
         enableDamping={true}
@@ -34,6 +32,8 @@ export default function Scene({ children, ...props }) {
         maxDistance={1000}
         target={[0, doorConfig.height * 0.5, 0]}
       />
+
+      <Preload all />
     </Canvas>
   );
 }
