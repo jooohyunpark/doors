@@ -4,6 +4,7 @@ import PageTransition from "@/components/PageTransition";
 export const metadata = {
   title: "Doors",
   description: "",
+  authors: [{ name: "Joohyun Park" }],
 };
 
 export default function RootLayout({ children }) {

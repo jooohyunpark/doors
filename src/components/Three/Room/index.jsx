@@ -1,3 +1,5 @@
+"use client";
+
 import Door from "@/components/Three/Door";
 import Scene from "@/components/Three/Scene";
 

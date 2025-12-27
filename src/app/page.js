@@ -2,10 +2,13 @@ import { doors, roomData, getRoomData } from "@/data";
 import Room from "@/components/Three/Room";
 
 export default function Page({ id = 1 }) {
+  const room = getRoomData(id);
+  if (!room) return null;
+
   return (
     <Room
-      color={getRoomData(id).color}
-      data={doors(roomData.filter((room) => room.id !== id))}
+      color={room.color}
+      data={doors(roomData.filter((r) => r.id !== id))}
     />
   );
 }
