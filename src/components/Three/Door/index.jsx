@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 import { doorConfig } from "@/data";
 import { useSpring, animated } from "@react-spring/three";

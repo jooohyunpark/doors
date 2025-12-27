@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 const fade = {
   initial: { opacity: 0 },
@@ -10,12 +10,12 @@ const fade = {
 };
 
 export default function PageTransition({ children }) {
-  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={pathname}
+        key={router.asPath}
         variants={fade}
         initial="initial"
         animate="animate"
