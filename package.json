@@ -13,16 +13,16 @@
     "@react-spring/three": "^10.0.3",
     "@react-spring/web": "^10.0.3",
     "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
-    "framer-motion": "^12.23.26",
-    "motion": "^12.23.26",
-    "next": "^16.1.5",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "@react-three/fiber": "^9.5.0",
+    "framer-motion": "^12.34.3",
+    "motion": "^12.34.3",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "three": "^0.182.0"
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.1"
+    "eslint": "^9.39.3",
+    "eslint-config-next": "^16.1.6"
   }
 }
