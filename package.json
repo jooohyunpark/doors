@@ -16,13 +16,13 @@
     "@react-three/fiber": "^9.5.0",
     "framer-motion": "^12.34.3",
     "motion": "^12.34.3",
-    "next": "^16.1.6",
+    "next": "^16.2.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "three": "^0.182.0"
   },
   "devDependencies": {
     "eslint": "^9.39.3",
-    "eslint-config-next": "^16.1.6"
+    "eslint-config-next": "^16.2.0"
   }
 }
