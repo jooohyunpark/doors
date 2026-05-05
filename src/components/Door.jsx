@@ -1,33 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { useSpring, animated } from "@react-spring/three";
-import * as THREE from "three";
+import { GradientTexture } from "@react-three/drei";
 
 import { doorConfig } from "@/data";
-
-const buildGradientTexture = (color) => {
-  const size = 1024;
-  const canvas = document.createElement("canvas");
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext("2d");
-
-  const { r, g, b } = new THREE.Color(color);
-  const r255 = Math.round(r * 255);
-  const g255 = Math.round(g * 255);
-  const b255 = Math.round(b * 255);
-
-  const gradient = ctx.createLinearGradient(0, 0, 0, size);
-  gradient.addColorStop(0, `rgba(${r255}, ${g255}, ${b255}, 1)`);
-  gradient.addColorStop(1, `rgba(${r255}, ${g255}, ${b255}, 0)`);
-
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, size, size);
-
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.needsUpdate = true;
-  return texture;
-};
 
 const Door = ({
   color = "#ffffff",
@@ -40,16 +16,9 @@ const Door = ({
   const { width, height } = doorConfig;
   const offsetY = height * 0.5;
   const lightWidth = width;
-  const lightHeight = height * 2;
+  const lightHeight = height * 2.5;
 
   const [hovered, setHover] = useState(false);
-  const [gradientTexture, setGradientTexture] = useState(null);
-
-  useEffect(() => {
-    const texture = buildGradientTexture(color);
-    setGradientTexture(texture);
-    return () => texture.dispose();
-  }, [color]);
 
   const { door_scale, light_scale, light_opacity } = useSpring({
     door_scale: hovered ? [1.2, 1, 1] : [1, 1, 1],
@@ -72,20 +41,26 @@ const Door = ({
         <meshBasicMaterial color={color} />
       </animated.mesh>
 
-      {gradientTexture && (
-        <animated.mesh
-          scale={light_scale}
-          position={[0, 0, lightHeight * -0.5]}
-          rotation={[Math.PI * 0.5, Math.PI, 0]}
+      <animated.mesh
+        scale={light_scale}
+        position={[0, 0, lightHeight * -0.5]}
+        rotation={[Math.PI * 0.5, Math.PI, 0]}
+      >
+        <planeGeometry args={[lightWidth, lightHeight]} />
+        <animated.meshBasicMaterial
+          color={color}
+          transparent
+          opacity={light_opacity}
         >
-          <planeGeometry args={[lightWidth, lightHeight]} />
-          <animated.meshBasicMaterial
-            transparent={true}
-            opacity={light_opacity}
-            map={gradientTexture}
+          {/* alphaMap, not map: drei's GradientTexture parses colors through THREE.Color, which strips alpha */}
+          <GradientTexture
+            attach="alphaMap"
+            stops={[0, 1]}
+            colors={["white", "black"]}
+            size={1024}
           />
-        </animated.mesh>
-      )}
+        </animated.meshBasicMaterial>
+      </animated.mesh>
     </group>
   );
 };
