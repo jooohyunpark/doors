@@ -3,7 +3,7 @@ const nextConfig = {
   devIndicators: false,
 
   async redirects() {
-    return [{ source: "/", destination: "/room/1", permanent: true }];
+    return [{ source: "/", destination: "/room/1", permanent: false }];
   },
 };
 
