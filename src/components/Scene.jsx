@@ -1,5 +1,3 @@
-"use client";
-
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera, Preload } from "@react-three/drei";
 import { doorConfig } from "@/data";

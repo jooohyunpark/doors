@@ -1,4 +1,4 @@
-import Room from "@/components/Three/Room";
+import Room from "@/components/Room";
 import { doors, roomData, getRoomData } from "@/data";
 
 export default function RoomPage({ room, doorsData }) {
