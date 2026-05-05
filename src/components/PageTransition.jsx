@@ -1,11 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/router";
 
-const fade = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
+const style = { width: "100%", height: "100%" };
 
 export default function PageTransition({ children }) {
   const router = useRouter();
@@ -14,12 +10,11 @@ export default function PageTransition({ children }) {
     <AnimatePresence mode="wait">
       <motion.div
         key={router.asPath}
-        variants={fade}
-        initial="initial"
-        animate="animate"
-        exit="exit"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
-        style={{ width: "100%", height: "100%" }}
+        style={style}
       >
         {children}
       </motion.div>

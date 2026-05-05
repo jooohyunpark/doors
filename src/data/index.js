@@ -21,25 +21,15 @@ export const roomData = [
 export const getRoomData = (id) => roomData.find((d) => d.id === id);
 
 export const doors = (data = [{ color: 0xffffff, id: 0 }]) => {
-  const array = [];
+  const { width, offset, range } = doorConfig;
+  const step = width * offset;
+  const xs = shuffledArray(range[0], range[1]);
+  const zs = shuffledArray(range[0], range[1]);
 
-  const { offset, range } = doorConfig;
-
-  const xArray = shuffledArray(range[0], range[1]);
-  const zArray = shuffledArray(range[0], range[1]);
-
-  for (let i = 0; i < data.length; i++) {
-    array.push({
-      position: [
-        xArray.pop() * doorConfig.width * offset,
-        0,
-        zArray.pop() * doorConfig.width * offset,
-      ],
-      rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],
-      color: data[i].color,
-      id: data[i].id,
-    });
-  }
-
-  return array;
+  return data.map(({ color, id }) => ({
+    position: [xs.pop() * step, 0, zs.pop() * step],
+    rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],
+    color,
+    id,
+  }));
 };
