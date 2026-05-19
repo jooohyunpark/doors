@@ -1,7 +1,14 @@
+import { useMemo } from "react";
 import Door from "@/components/Door";
 import Scene from "@/components/Scene";
+import { doors, roomData } from "@/data";
 
-const Room = ({ data = [], color = "#000000" }) => {
+const Room = ({ id, color = "#000000" }) => {
+  const data = useMemo(
+    () => doors(roomData.filter((entry) => entry.id !== id)),
+    [id],
+  );
+
   return (
     <Scene>
       <color attach="background" args={[color]} />

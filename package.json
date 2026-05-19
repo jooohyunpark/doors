@@ -17,6 +17,7 @@
     "next": "^16.2.6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-error-boundary": "^6.1.1",
     "three": "^0.184.0"
   },
   "devDependencies": {

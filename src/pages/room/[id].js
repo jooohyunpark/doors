@@ -1,10 +1,12 @@
-import Room from "@/components/Room";
-import { doors, roomData, getRoomData } from "@/data";
+import dynamic from "next/dynamic";
+import { roomData, getRoomData } from "@/data";
 
-export default function RoomPage({ room, doorsData }) {
+const Room = dynamic(() => import("@/components/Room"), { ssr: false });
+
+export default function RoomPage({ room }) {
   if (!room) return null;
 
-  return <Room color={room.color} data={doorsData} />;
+  return <Room id={room.id} color={room.color} />;
 }
 
 export function getStaticPaths() {
@@ -17,17 +19,11 @@ export function getStaticPaths() {
 }
 
 export function getStaticProps({ params }) {
-  const roomId = Number(params.id);
-  const room = getRoomData(roomId);
+  const room = getRoomData(Number(params.id));
 
   if (!room) {
     return { notFound: true };
   }
 
-  return {
-    props: {
-      room,
-      doorsData: doors(roomData.filter((entry) => entry.id !== roomId)),
-    },
-  };
+  return { props: { room } };
 }
