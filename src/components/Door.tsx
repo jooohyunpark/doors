@@ -26,8 +26,8 @@ const Door = ({
   const router = useRouter();
   const [hovered, setHover] = useState(false);
 
-  const { scale, opacity } = useSpring({
-    scale: hovered ? ([1.2, 1, 1] as [number, number, number]) : ([1, 1, 1] as [number, number, number]),
+  const { scale, opacity } = useSpring<{ scale: [number, number, number]; opacity: number }>({
+    scale: hovered ? [1.2, 1, 1] : [1, 1, 1],
     opacity: hovered ? 1 : 0.5,
     config: springConfig,
   });

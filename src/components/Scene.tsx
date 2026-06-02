@@ -21,16 +21,10 @@ const Fallback = () => (
   </div>
 );
 
-const handleCreated = ({ gl }: { gl: { domElement: HTMLCanvasElement } }) => {
-  gl.domElement.addEventListener("webglcontextlost", (event) => {
-    event.preventDefault();
-  });
-};
-
 export default function Scene({ children }: { children: ReactNode }) {
   return (
     <ErrorBoundary FallbackComponent={Fallback}>
-      <Canvas flat onCreated={handleCreated}>
+      <Canvas flat>
         <OrthographicCamera
           makeDefault
           position={[1, 1, -1]}
