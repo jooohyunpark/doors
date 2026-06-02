@@ -1,9 +1,16 @@
+"use client";
+
 import { useMemo } from "react";
 import Door from "@/components/Door";
 import Scene from "@/components/Scene";
 import { doors, roomData } from "@/data";
 
-const Room = ({ id, color = "#000000" }) => {
+interface RoomProps {
+  id: number;
+  color?: string;
+}
+
+const Room = ({ id, color = "#000000" }: RoomProps) => {
   const data = useMemo(
     () => doors(roomData.filter((entry) => entry.id !== id)),
     [id],

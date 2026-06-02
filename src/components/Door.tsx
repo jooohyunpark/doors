@@ -1,25 +1,33 @@
+"use client";
+
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useSpring, animated } from "@react-spring/three";
 import { GradientTexture } from "@react-three/drei";
-
 import { doorConfig } from "@/data";
 
 const { width, height } = doorConfig;
 const lightHeight = height * 2.5;
 const springConfig = { duration: 200 };
 
+interface DoorProps {
+  color?: string;
+  position?: [number, number, number];
+  rotation?: [number, number, number];
+  id: number;
+}
+
 const Door = ({
   color = "#ffffff",
   position = [0, 0, 0],
   rotation = [0, 0, 0],
-  id = 0,
-}) => {
+  id,
+}: DoorProps) => {
   const router = useRouter();
   const [hovered, setHover] = useState(false);
 
   const { scale, opacity } = useSpring({
-    scale: hovered ? [1.2, 1, 1] : [1, 1, 1],
+    scale: hovered ? ([1.2, 1, 1] as [number, number, number]) : ([1, 1, 1] as [number, number, number]),
     opacity: hovered ? 1 : 0.5,
     config: springConfig,
   });
@@ -42,6 +50,7 @@ const Door = ({
         scale={scale}
         position={[0, 0, lightHeight * -0.5]}
         rotation={[Math.PI * 0.5, Math.PI, 0]}
+        raycast={() => null}
       >
         <planeGeometry args={[width, lightHeight]} />
         <animated.meshBasicMaterial color={color} transparent opacity={opacity}>

@@ -1,3 +1,6 @@
+"use client";
+
+import { type ReactNode } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import { ErrorBoundary } from "react-error-boundary";
@@ -9,7 +12,7 @@ const fallbackStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  textAlign: "center",
+  textAlign: "center" as const,
 };
 
 const Fallback = () => (
@@ -18,14 +21,13 @@ const Fallback = () => (
   </div>
 );
 
-const handleCreated = ({ gl }) => {
-  // Let the browser restore the context instead of leaving the tab black.
+const handleCreated = ({ gl }: { gl: { domElement: HTMLCanvasElement } }) => {
   gl.domElement.addEventListener("webglcontextlost", (event) => {
     event.preventDefault();
   });
 };
 
-export default function Scene({ children }) {
+export default function Scene({ children }: { children: ReactNode }) {
   return (
     <ErrorBoundary FallbackComponent={Fallback}>
       <Canvas flat onCreated={handleCreated}>

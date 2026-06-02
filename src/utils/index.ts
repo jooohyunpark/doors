@@ -1,10 +1,10 @@
-export const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
+export const getRandomInt = (min: number, max: number): number => {
+  const lo = Math.ceil(min);
+  const hi = Math.floor(max);
+  return Math.floor(Math.random() * (hi - lo + 1) + lo);
 };
 
-export const shuffledArray = (min = -5, max = 5) => {
+export const shuffledRange = (min: number, max: number): number[] => {
   if (min > max) return [];
 
   const array = Array.from({ length: max - min + 1 }, (_, i) => min + i);

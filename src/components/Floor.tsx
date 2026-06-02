@@ -1,3 +1,5 @@
+"use client";
+
 import { doorConfig } from "@/data";
 
 const Floor = () => {
