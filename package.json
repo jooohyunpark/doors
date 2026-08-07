@@ -10,22 +10,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-spring/three": "^10.0.3",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.6.1",
-    "motion": "^12.38.0",
-    "next": "^16.2.12",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-error-boundary": "^6.1.1",
-    "three": "^0.184.0"
+    "@react-spring/three": "^10.1.2",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "motion": "^13.0.0",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-error-boundary": "^6.1.2",
+    "three": "^0.185.1"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "eslint": "^9.39.3",
-    "eslint-config-next": "^16.2.12",
-    "typescript": "^5.0.0"
+    "@types/node": "^22.20.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "eslint": "^10.8.0",
+    "eslint-config-next": "^16.3.0",
+    "typescript": "^5.9.3"
   }
 }
