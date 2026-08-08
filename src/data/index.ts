@@ -39,9 +39,20 @@ export const doors = (data: RoomEntry[]): DoorData[] => {
   const xs = shuffledRange(range[0], range[1]);
   const zs = shuffledRange(range[0], range[1]);
 
-  return data.map(({ color, id }) => ({
-    position: [xs.pop()! * step, 0, zs.pop()! * step],
-    rotation: [0, Math.PI * getRandomInt(-2, 2) * 0.5, 0],
+  // Each door takes one slot from each axis, so the range has to be wide enough
+  // to give every entry a distinct one. Failing loudly beats handing three.js a
+  // NaN position, which drops the door with no error.
+  if (data.length > xs.length) {
+    throw new Error(
+      `doors(): ${data.length} doors requested but range [${range[0]}, ${range[1]}] only provides ${xs.length} slots`,
+    );
+  }
+
+  return data.map(({ color, id }, i) => ({
+    position: [xs[i] * step, 0, zs[i] * step],
+    // 0..3 rather than -2..2: -2 and 2 are both a half turn, which would make
+    // that one facing twice as likely as the other three.
+    rotation: [0, Math.PI * getRandomInt(0, 3) * 0.5, 0],
     color,
     id,
   }));
